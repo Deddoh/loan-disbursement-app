@@ -1,0 +1,22 @@
+<form [formGroup]="form" (ngSubmit)= "OnSubmit(form.value)" autocomplete="false">
+
+    <mat-form-field  fxFlexFill>
+      <mat-label>Username</mat-label>
+      <input matInput placeholder="Enter username" formControlName="Username" required autocomplete="false">
+      <mat-error @if="form.get('username').touched && form.get('username').errors?.required">This field is required</mat-error>
+    </mat-form-field>
+    
+    <mat-form-field fxFlexFill>
+      <mat-label>Password</mat-label>
+      <input type="password" matInput placeholder="Enter Password" formControlName="Password" required autocomplete="false">
+      <mat-error @if="form.get('password').touched && form.get('password').errors?.required">This field is required</mat-error>
+    </mat-form-field>
+    <br>
+    
+  <button type= "submit" class="btn btn-block btn-action"  [disabled]="form.invalid || disableButton == true">
+  </button>
+
+    <small class="pwd-text pull-right mt-1" (click)="forgotPwd()">Forgot password ?</small>
+    
+  <br>
+</form>
