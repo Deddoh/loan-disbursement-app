@@ -1,3 +1,4 @@
+import { LoanApplicationComponent } from './components/loans/loan-application/loan-application.component';
 import { Routes } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 
@@ -9,7 +10,7 @@ export const routes: Routes = [
     },
     {
         path: "loans",
-        loadChildren: () => import("./components/loans/loans.module").then(m => m.LoansModule),
+        loadComponent: () => import("../app/components/loans/loan-application/loan-application.component").then(m => m.LoanApplicationComponent),
         data: {
             breadcrumb: "Loans"
         }
